@@ -13,10 +13,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'rose'
 api = Api(app)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 app.config['JWT_AUTH_URL_RULE'] = '/login' # changing endpoint '/auth' to '/login'
 app.config['JWT_AUTH_USERNAME_KEY'] = 'email'
 app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800) # extending token expiration time
